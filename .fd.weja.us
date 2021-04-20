@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+###  Target Defaults
+export FD_SERVICE_NAME=$(basename "$PWD")	# Can be set to any, but assumes the current parent directory name, typically the project repository
+export FD_TARGET='local'					# ["local", "remote"]
+export FD_TARGET_ALIAS="${USER}"			# Any URL-friendly string e.g. [ "dev", "stage", "prod" ], although "prod" is always treated as such (default: system username)
+export FD_TARGET_IMAGE_TAG='latest'			# Follows Docker image naming standards.  Can be any, although "latest" is always treated as such
+export FD_TARGET_PORT='8080'				# Can be any valid TCP port, but is best overridden locally by docker-compose and remotely by Cloud provider (Google default: 8080)
+export FD_TARGET_PROJECT_ID='weja-us'		# Designed for use with Google project IDs, but can accommodate any number of cloud providers
+export FD_TARGET_REALM='foo'				# Any URL-friendly string, along with TARGET_DOMAIN will define the micro-fe realm
+export FD_LOG_LEVEL='error'					# Docker standard log levels [ "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL" ] (default: INFO)
+export FD_BUILD_CONTEXT='DOCKER'			# Defines which builder script to use, current support:
+											# [	"DOCKER"		-- image-based deployments(no code)
+											#	"ANGULAR"		-- expects strict adherence to Angular CLI best practices
+											#	"GO"			-- assumes latest GO module-based implementation
+											#	"PYTHON"		--
+											#	"TYPESCRIPT"	-- primarily intended for nodejs deployments  ]
+
+printf	"%b%sLoading domain defaults:  %s.fd.%s"		"\n${three_in}"	"${y}"  "${g}"	"${(L)TARGET_DOMAIN}${y}"
+printf	"%bSERVICE_NAME ...................%s √ %s%s"	"\n${four_in}"  "${g}"	"${y}"  "${(L)FD_SERVICE_NAME}"
+printf	"%b%sTARGET:%s %s"								"\n${four_in}"	"${y}"  		"${(U)FD_TARGET}"
+printf			"%bTARGET_ALIAS ...........%s √ %s%s"	"\n${five_in}"  "${g}"  "${y}"  "${(L)FD_TARGET_ALIAS}"
+printf			"%bTARGET_PROJECT_ID ......%s √ %s%s"	"\n${five_in}"  "${g}"  "${y}"  "${(L)FD_TARGET_PROJECT_ID}"
+printf			"%bTARGET_IMAGE_TAG .......%s √ %s%s"	"\n${five_in}"  "${g}"  "${y}"  "${(L)FD_TARGET_IMAGE_TAG}"
+printf			"%bTARGET_PORT ............%s √ %s%s"	"\n${five_in}"  "${g}"  "${y}"  "${FD_TARGET_PORT}"
+printf			"%bTARGET_REALM ...........%s √ %s%s"	"\n${five_in}"  "${g}"  "${y}"  "${FD_TARGET_REALM}"
+printf	"%bLOG_LEVEL ......................%s √ %s%s"	"\n${four_in}"  "${g}"  "${y}"  "${(U)FD_LOG_LEVEL}"
+printf	"%bBUILD_CONTEXT ..................%s √ %s%s"	"\n${four_in}"  "${g}"  "${y}"  "${(U)FD_BUILD_CONTEXT}"
+printf	"%s\n"	 										"${reset}"

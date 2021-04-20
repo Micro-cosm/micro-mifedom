@@ -1,0 +1,41 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+.firebase
+.firebaserc
+
+**/secrets
+*.SAVE
+.ARCHIVE
+node_modules
+dist
+/tmp
+/out-tsc
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+# misc
+/.sass-cache
+npm-debug.log
+testem.log
+/typings
+coverage
+tmp*
+*tmp
+#System Files
+.DS_Store
+Thumbs.db
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
