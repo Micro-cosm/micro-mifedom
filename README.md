@@ -9,8 +9,8 @@ _NOTE: Given our shared common purpose, **we are quick to respond to your hackat
 
 ----
 
-This repo is intended to unite Micro-cosm mifen. By demonstrating one approach, using the Firebase platform, we
-hope to show how loosely-coupled mifen can fundamentally change how complex systems are reasoned about.
+This repo is intended to unite Micro-cosm mifen.  By providing just one simple approach, in this case using the Firebase platform, we
+hope loosely-coupled mifen reveal new ways to reason about complex systems.
 
 This repo assumes access to a running GCP project with access from local installations of gcloud and Firebase CLI.
 
