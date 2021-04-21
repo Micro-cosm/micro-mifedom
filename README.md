@@ -5,7 +5,7 @@ subdomain, auth realm, and other fundamental services that can quickly bring you
 
 ----
 
-_NOTE:  Given the shared common purpose, **we are quick to respond to hackathon use cases!**_
+_NOTE:  With a shared common purpose, **we are quick to respond to hackathon use cases!**_
 
 ----
 
