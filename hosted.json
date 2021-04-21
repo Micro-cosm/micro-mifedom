@@ -1,7 +1,0 @@
-{
-    "database":     { "rules": "database.rules.json"    },
-    "firestore":    { "rules": "firestore.rules"        },
-    "ui":           {},
-    "functions":    { "predeploy": [ "npm --prefix  run lint" ]},
-    "hosting":      { "public": "public", "host": "0.0.0.0", "ignore": [ "firebase.json", "hosted.json", "**/.*", "**/node_modules/**" ]}
-}
