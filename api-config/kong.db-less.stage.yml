@@ -1,0 +1,27 @@
+
+
+_format_version: "2.1"
+_transform: true
+
+services:
+  - name:   api1
+    url:    https://too.fb.weja.us/sapi/api1
+    routes:
+      - name: api1
+        paths:
+          - /api/api1
+          - /api/web1
+  - name:   api2
+    url:    https://too.fb.weja.us
+    routes:
+      - name: api2
+        paths:
+          - /sapi/api2
+          - /sapi/web2
+  - name:   api3
+    url:  http://www.mocky.io/v2/5ca725833400002c4876b363
+    routes:
+      - name: api3
+        paths:
+          - /sapi/api3
+          - /sapi/web2

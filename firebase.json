@@ -30,8 +30,10 @@
             {"source": "**/*.@(js|css|jpg|png)", "headers": [{"key": "Cache-Control", "value": "max-age=31536000"             }]}
         ],
         "rewrites": [
-            {"source": "/ng-start",             "run": {"serviceId": "helloworld"                                            }},
-            {"source": "/go-start",             "run": {"serviceId": "go-start-stage-weja-us-micro-go-start"                 }},
+            {"source": "/ng-start/**",          "run": {"serviceId": "helloworld"                                            }},
+            {"source": "/go-auth",              "run": {"serviceId": "go-auth-stage-weja-us-micro-server-go-auth"            }},
+            {"source": "/go-start/**",          "run": {"serviceId": "go-start-stage-weja-us-micro-go-start"                 }},
+            {"source": "/sapi/**",              "run": {"serviceId": "db-less-weja-us-micro-mifedom-stage"                   }},
             {"source": "/auth/**",              "run": {"serviceId": "auth-stage-weja-us-micro-auth"                         }},
             {"source": "/auth-element/**",      "run": {"serviceId": "auth-element-stage-weja-us-micro-auth-element"         }},
             {"source": "/cms",                  "run": {"serviceId": "cms-stage-weja-us-micro-cms"                           }},

@@ -1,0 +1,18 @@
+{
+    "FdLocal":              false,
+    "FdTest":               false,
+    "FdVerbose":            false,
+    "FdBuildContext":       "docker",
+    "FdRepo":               "micro-mifedom",
+    "FdService":            "db-less",
+    "FdRouteBase":          "api",
+    "FdTitle":              "Mifedom",
+    "FdTargetAlias":        "local",
+    "FdTargetDomain":       "weja.us",
+    "FdTargetImageTag":     "latest",
+    "FdTargetLocalPort":    "8080",
+    "FdTargetLogLevel":     "info",
+    "FdTargetProjectId":    "weja-us",
+    "FdTargetRealm":        "too.fb.",
+    "FdTargetRemotePort":   "8080"
+}

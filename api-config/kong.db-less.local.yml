@@ -1,0 +1,72 @@
+
+
+# Metadata fields start with an underscore (_) Fields that do not start with an underscore represent Kong entities and attributes
+# _format_version is mandatory, it specifies the minimum version of Kong that supports the format
+_format_version: "2.1"
+# It specifies whether schema transformations should be applied when importing this file as a rule of thumb, leave this setting to true if you are importing credentials with plain passwords, which need to be encrypted/hashed before storing on the database.  On the other hand, if you are reimporting a database with passwords already encrypted/hashed, set it to false.
+# _transform is optional, defaulting to true
+_transform: true
+# Each Kong entity (core entity or custom entity introduced by a plugin) can be listed in the top-level as an array of objects:
+# services:
+# - name: example-service
+#   url: http://example.com
+#   tags:                               # Entities can store tags as metadata
+#   - example
+#   routes:                             # Entities that have a foreign-key relationship can be nested:
+#   - name: example-route
+#     paths:
+#     - /
+#   plugins:
+#   - name: key-auth
+# - name: another-service
+#   url: https://example.org
+
+services:
+  - name:   api1
+    url:    http://10.0.0.218:9091
+    routes:
+      - name: api1
+        paths:
+          - /api/api1
+          - /api/web1
+  - name:   api2
+    url:    http://10.0.0.218:9092
+    routes:
+      - name: api2
+        paths:
+          - /api/api2
+          - /api/web2
+  - name:   api3
+    url:  http://www.mocky.io/v2/5ca725833400002c4876b363
+    routes:
+      - name: api3
+        paths:
+          - /api/api3
+          - /api/web2
+
+# routes:
+# - name: another-route
+#   service: example-service                                # Relationships can also be specified between top-level entities, either by name or by id
+#   hosts: ["hello.com"]
+
+# consumers:
+# - username: example-user
+#   - key: my-key                                           # Custom entities from plugin can also be specified.  If they specify a foreign-key relationship, they can also be nested keyauth_credentials:
+#   plugins:
+#   - name: rate-limiting
+#     _comment: "these are default rate-limits for user example-user"
+#     config:
+#       policy: local
+#       second: 5
+#       hour: 10000
+
+# plugins:                                                  # When an entity has multiple foreign-key relationships (e.g. a plugin matching on both consumer and service), it must be specified as a top-level entity, and not through nesting.
+# - name: rate-limiting
+#   consumer: example-user
+#   service: another-service
+#   _comment: "example-user is extra limited when using another-service"
+#   config:
+#     hour: 2
+#   tags:                                                   # tags are for your use only, no meaning for Kong:
+#   - extra_limits
+#   - my_tag

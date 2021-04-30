@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  micro-mifedom-dp:
+    image: us.gcr.io/${TARGET_PROJECT_ID}/${REPO}/${SERVICE}/${TARGET_ALIAS}:${TARGET_IMAGE_TAG}
+    build: .
+    container_name: ${REPO}_${SERVICE}_${TARGET_ALIAS}
+    env_file: "envs/.dp.env.local.yml"
+    volumes:
+      - ./kong-mnt:/cluster/cert:rw
+    ports:
+      - ${TARGET_LOCAL_PORT}:${TARGET_REMOTE_PORT}/tcp
+      - "8001:8001/tcp"
+      - "8443:8443/tcp"
+      - "8444:8444/tcp"
+
+  micro-mifedom-cp:
+    image: us.gcr.io/${TARGET_PROJECT_ID}/${REPO}/${SERVICE}/${TARGET_ALIAS}:${TARGET_IMAGE_TAG}
+    build: .
+    container_name: ${REPO}_${SERVICE}_${TARGET_ALIAS}
+    env_file: "envs/.cp.env.local.yml"
+    volumes:
+      - ./kong-mnt:/cluster/cert:rw
+    ports:
+      - "8005:8005/tcp"
+      - "8006:8006/tcp"
+
+  micro-mifedom-cassandra:
+    image: cassandra:latest
+    container_name: ${REPO}_${SERVICE}_${TARGET_ALIAS}
+    env_file: "envs/.cassandra.env.local.yml"
+    volumes:
+      - ./data:/var/lib/cassandra:rw
+    ports:
+    - 0.0.0.0:9042:9042
+
+volumes:
+  kong-mnt:
+  data:

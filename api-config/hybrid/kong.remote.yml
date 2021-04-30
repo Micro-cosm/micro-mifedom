@@ -1,0 +1,40 @@
+
+
+_format_version: "1.1"
+
+services:
+    -   name: weja-stage                                                                        ##  weja STAGE DIRECTORY
+        hosts:
+            - "localhost"
+            - "foo.fb.weja.us"
+        paths:
+            - "/sapi"
+    -   name: weja-prod                                                                           ## weja PROD DIRECTORY
+        hosts:
+            - "localhost"
+            - "too.fb.weja.us"
+        paths:
+            - "/papi"
+plugins:
+    -   name: request-transformer
+        route: weja-stage
+        config:
+            add:
+                headers:
+                    - "Authorization: Basic dGVzdC1hcDppbnJldHVybi80dQ=="
+                    - "Content-Type:  application/json"
+                    - "Accept:        application/json"
+            remove:
+                headers:
+                    - "User-Agent"
+    -   name: request-transformer
+        route: weja-prod
+        config:
+            add:
+                headers:
+                    - "Authorization: Basic cHJvZC1hcDppbnJldHVybi80dQ=="
+                    - "Content-Type:  application/json"
+                    - "Accept:        application/json"
+            remove:
+                headers:
+                    - "User-Agent"
