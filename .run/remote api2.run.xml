@@ -3,7 +3,7 @@
     <option name="SCRIPT_TEXT" value="" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="$USER_HOME$/bin/bingo.sh" />
-    <option name="SCRIPT_OPTIONS" value="--remote --alias=stage --service=api2 --route=sapi/api2 --quiet" />
+    <option name="SCRIPT_OPTIONS" value="--remote --alias=stage --service=api2 --route=&quot;sapi/api2&quot; --quiet" />
     <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
     <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
