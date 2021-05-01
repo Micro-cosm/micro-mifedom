@@ -1,18 +1,15 @@
 version: '3.8'
 
 services:
-  micro-mifedom-mockapi-api1:
+  micro-mifedom-api-gateway:
     image: us.gcr.io/${TARGET_PROJECT_ID}/${REPO}/${SERVICE}/${TARGET_ALIAS}:${TARGET_IMAGE_TAG}
     build: .
     container_name: ${REPO}_${SERVICE}_${TARGET_ALIAS}
-    env_file: ".env.local.yml"
+    env_file: "envs/.env.local.yml"
+    volumes:
+      - ./kong-mnt:/home/kong/kong-mnt:rw
     ports:
-      - 0.0.0.0:${TARGET_LOCAL_PORT}:${TARGET_REMOTE_PORT}
-  micro-mifedom-mockapi-api2:
-    image: us.gcr.io/${TARGET_PROJECT_ID}/${REPO}/${SERVICE}/${TARGET_ALIAS}:${TARGET_IMAGE_TAG}
-    build: .
-    container_name: ${REPO}_${SERVICE}_${TARGET_ALIAS}
-    env_file: ".env.local.yml"
-    ports:
-      - 0.0.0.0:${TARGET_LOCAL_PORT}:${TARGET_REMOTE_PORT}
-
+      - ${TARGET_LOCAL_PORT}:${TARGET_REMOTE_PORT}/tcp
+      - "8001:8001/tcp"
+      - "8443:8443/tcp"
+      - "8444:8444/tcp"

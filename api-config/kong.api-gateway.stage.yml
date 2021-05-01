@@ -5,21 +5,21 @@ _transform: true
 
 services:
   - name:   api1
-    url:    https://too.fb.weja.us/sapi/api1
+    url:    https://api1-weja-us-micro-mifedom-mockapi-stage-rztmaxtwva-uc.a.run.app
     routes:
       - name: api1
         paths:
-          - /api/api1
-          - /api/web1
+          - /sapi/api1
+          - /sapi/web1
   - name:   api2
-    url:    https://too.fb.weja.us
+    url:    https://api2-weja-us-micro-mifedom-mockapi-stage-rztmaxtwva-uc.a.run.app
     routes:
       - name: api2
         paths:
           - /sapi/api2
           - /sapi/web2
   - name:   api3
-    url:  http://www.mocky.io/v2/5ca725833400002c4876b363
+    url:    http://www.mocky.io/v2/5ca725833400002c4876b363
     routes:
       - name: api3
         paths:
