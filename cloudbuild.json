@@ -5,7 +5,7 @@
         "args": [
             "beta", "run", "deploy", "${_SERVICE}-${PROJECT_ID}-${_REPO}-${_TARGET_ALIAS}",
             "--image=us.gcr.io/${PROJECT_ID}/${_REPO}/${_SERVICE}/${_TARGET_ALIAS}:${_TARGET_IMAGE_TAG}",
-            "--labels=env=${_TARGET_ALIAS},route=${_ROUTE_BASE}",
+            "--labels=env=${_TARGET_ALIAS}",
             "--region=us-central1",
             "--platform=managed",
             "--allow-unauthenticated",
@@ -15,12 +15,8 @@
             "--set-env-vars=LOGS=${_LOGS}",
             "--set-env-vars=ROUTE_BASE=${_ROUTE_BASE}",
             "--set-env-vars=SERVICE=${_SERVICE}",
-            "--set-env-vars=TITLE=${_TITLE}",
-            "--set-env-vars=KONG_DATABASE=off",
-            "--set-env-vars=KONG_DECLARATIVE_CONFIG=/usr/local/kong/declarative/kong.yml",
-            "--set-env-vars=KONG_PROXY_ACCESS_LOG=/dev/stdout",
-            "--set-env-vars=KONG_PROXY_ERROR_LOG=/dev/stderr",
-            "--set-env-vars=KONG_LOG_LEVEL=${_TARGET_LOG_LEVEL}"
+            "--set-env-vars=_TARGET_LOG_LEVEL=${_TARGET_LOG_LEVEL}",
+            "--set-env-vars=TITLE=${_TITLE}"
         ]
     }]
 }

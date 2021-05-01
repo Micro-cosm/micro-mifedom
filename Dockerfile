@@ -1,13 +1,4 @@
-# FROM	kong/kong-gateway
-FROM	kong:latest
+FROM	nginxdemos/hello
 
-ARG		REPO
-ARG		SERVICE
-ARG		TARGET_ALIAS
-ENV		REPO=${REPO}
-ENV		SERVICE=${SERVICE}
-ENV		TARGET_ALIAS=${TARGET_ALIAS}
-
-COPY	./api-config/kong.$SERVICE.$TARGET_ALIAS.yml /usr/local/kong/declarative/kong.yml
-COPY	./api-config/kong.conf.default /etc/kong/kong.conf
-
+RUN		sed -i 's/listen.*/listen 8080;/g' /etc/nginx/conf.d/hello.conf
+CMD		["/bin/sh", "-c", "exec nginx -g 'daemon off;'"]
