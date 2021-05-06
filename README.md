@@ -1,16 +1,16 @@
 # MicroMifedom
 
-A request router that brings a touch of architecture to your otherwise disparate mifen, providing them a shared
-subdomain, auth realm, api gateway, and other fundamental services that can quickly bring your **Mifedom** to life
+A request router that brings a touch of architecture to otherwise disparate mifen.  Provides several fundamental shared services, that among others include:
+common subdomain, unified auth realm, and serverless API gateway that can quickly bring a **Mifedom** to life
 
 ----
 
-_**SUPPORT REMINDER**:  Given the shared common purpose, **we are quick to respond to the needs of any hackathon use cases!**_
+_**SUPPORT REMINDER**:  Given the shared common purpose, **we strive to quickly respond to hackathon use cases**_.
 
 ----
 
-This repo is intended to unite Micro-cosm mifen.  By providing just one simple approach, in this case using the Firebase platform, the
-hope is that loosely-coupled mifen reveal new ways to reason about complex systems.
+This repo is intended to unite Micro-cosm mifen.  By providing just one simple approach that quickly binds loosely-coupled mifen together, we hope
+to reveal new ways to reason about complex systems.
 
 This repo assumes access to a running GCP project that provides access to local installations of **gcloud** and **firebase** CLIs.
 
@@ -25,26 +25,17 @@ This repo assumes access to a running GCP project that provides access to local 
 **NOTE:** Running this assumes that any services included in the gateway are pointing to live instances, otherwise the deployment will error that indicates the unavailable service.
 
 ## Log Levels
-    debug:          debugging info about the plugins runloop and each individual plugin or other components.
-                    Very chatty like Jeremy said, but useful when debugging, e.g. is plugin xyz running?
-    info/notice:    informational log about normal behavior, can mostly be ignored.
-                    Kong does not make a big difference between both of these levels (although syslog(2) does).
-    warn:           abnormal behavior, not resulting in dropped transactions, but should be investigated.
-    error:          an error that resulted in a request being dropped. The client probably received an HTTP 500 response or similar.
-                    Monitoring the rate of these logs is important, as they can happen occasionally,
-                    but an abnormally high rate of error logs can mean that something is wrong and a large number of clients are suffering from it.
-    crit:           Kong is operating in critical conditions; most likely not working for a large number of clients.
-                    This log level warrants waking somebody up from your team.
+    debug:          Debugging info about the plugins runloop and each individual plugin or other components at a tedious level.
+    info/notice:    Both levels provid similarly esoteric messages, primarily capturing safely-ignored normal operating behavior.
+    warn:           Captures abnormal behavior, typically not resulting in dropped requests, but certainly worthy of attention.
+    error:          Captures true error conditions resulting in dropped requests, likely recognized by users via HTTP 50x-ish response.
+                    Monitoring the rate of these logs is important, as they can happen occasionally. An abnormally high rate of error logs 
+                    probably is a sign that very visible breaks a occurring frequently.
+    crit:           Critical conditions exist that likely impact all users, you might should wake somebody up for this one :)
 
 
 ## Locally Registered Ports
 
-5000 mifedom
+- 5000 - mifedom
 
-8000 mifedom kong api
-
-9091 mifedom api 1
-
-9091 mifedom api 2
-
-9091 mifedom api 3
+- 8000 - mifedom kong api
