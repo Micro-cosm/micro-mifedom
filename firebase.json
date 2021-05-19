@@ -11,10 +11,7 @@
             {"source": "/auth/**",            "run": {"serviceId": "auth-prod-weja-us-micro-auth"                        }},
             {"source": "/cms",                "run": {"serviceId": "cms-prod-weja-us-micro-cms"                          }},
             {"source": "/form/**",            "run": {"serviceId": "form-prod-weja-us-micro-form"                        }},
-            {"source": "/private/**",         "run": {"serviceId": "private-prod-weja-us-micro-private"                  }},
-            {"source": "/private-element/**", "run": {"serviceId": "private-element-prod-weja-us-micro-private-element"  }},
             {"source": "/public/**",          "run": {"serviceId": "public-prod-weja-us-micro-public"                    }},
-            {"source": "/priv-start/**",      "run": {"serviceId": "priv-start-prod-weja-us-micro-client-private-starter"}},
             {"source": "/pub-start/**",       "run": {"serviceId": "pub-start-prod-weja-us-micro-client-public-starter"  }}
         ]
     }, {
@@ -30,21 +27,20 @@
             {"source": "**/*.@(js|css|jpg|png)", "headers": [{"key": "Cache-Control", "value": "max-age=31536000"             }]}
         ],
         "rewrites": [
-            {"source": "/auth/**",            "run": {"serviceId": "auth--micro-auth--weja-us--stage"                      }},
-            {"source": "/sapi/**",            "run": {"serviceId": "api-gateway--micro-mifedom--weja-us--stage"            }},
-            {"source": "/server-auth",        "run": {"serviceId": "server-auth--micro-server-go-auth--weja-us--stage"     }},
-            {"source": "/ng-start/**",        "run": {"serviceId": "helloworld"                                            }},
-            {"source": "/go-start/**",        "run": {"serviceId": "go-start-stage-weja-us-micro-go-start"                 }},
-            {"source": "/auth-element/**",    "run": {"serviceId": "auth-element-stage-weja-us-micro-auth-element"         }},
-            {"source": "/cms",                "run": {"serviceId": "cms-stage-weja-us-micro-cms"                           }},
-            {"source": "/form/**",            "run": {"serviceId": "form-stage-weja-us-micro-form"                         }},
-            {"source": "/form-element/**",    "run": {"serviceId": "form-element-stage-weja-us-micro-form-element"         }},
-            {"source": "/private/**",         "run": {"serviceId": "private-stage-weja-us-micro-private"                   }},
-            {"source": "/private-element/**", "run": {"serviceId": "private-element-stage-weja-us-micro-private-element"   }},
-            {"source": "/public/**",          "run": {"serviceId": "public-stage-weja-us-micro-public"                     }},
-            {"source": "/priv-start/**",      "run": {"serviceId": "priv-start-stage-weja-us-micro-client-private-starter" }},
-            {"source": "/pub-start/**",       "run": {"serviceId": "pub-start-stage-weja-us-micro-client-public-starter"   }},
-            {"source": "/session/**",         "run": {"serviceId": "session-stage-weja-us-micro-server-go-session"         }}
+            {"source": "/auth/**",              "run": {"serviceId": "auth--micro-auth--weja-us--stage"                       }},
+            {"source": "/auth-element/**",      "run": {"serviceId": "auth-element--micro-auth-element--weja-us--stage"       }},
+            {"source": "/private-element/**",   "run": {"serviceId": "private-element--micro-private-element--weja-us--stage" }},
+            {"source": "/private-sprinkler/**", "run": {"serviceId": "sprinkler--micro-private-sprinkler--weja-us--stage"     }},
+            {"source": "/sapi/**",              "run": {"serviceId": "api-gateway--micro-mifedom--weja-us--stage"             }},
+            {"source": "/server-auth",          "run": {"serviceId": "server-auth--micro-server-go-auth--weja-us--stage"      }},
+            {"source": "/ng-start/**",          "run": {"serviceId": "helloworld"                                             }},
+            {"source": "/go-start/**",          "run": {"serviceId": "go-start-stage-weja-us-micro-go-start"                  }},
+            {"source": "/cms",                  "run": {"serviceId": "cms-stage-weja-us-micro-cms"                            }},
+            {"source": "/form/**",              "run": {"serviceId": "form-stage-weja-us-micro-form"                          }},
+            {"source": "/form-element/**",      "run": {"serviceId": "form-element-stage-weja-us-micro-form-element"          }},
+            {"source": "/public/**",            "run": {"serviceId": "public-stage-weja-us-micro-public"                      }},
+            {"source": "/pub-start/**",         "run": {"serviceId": "pub-start-stage-weja-us-micro-client-public-starter"    }},
+            {"source": "/session/**",           "run": {"serviceId": "session-stage-weja-us-micro-server-go-session"          }}
         ]
     }],
     "firestore": { "rules": "firestore.rules" }
